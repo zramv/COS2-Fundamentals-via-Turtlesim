@@ -121,4 +121,32 @@ A **Service** is a way for nodes to communicate with a request → response patt
 </p> 
 
 
-## action
+# action
+### Concept:
+An **Action** is like a service but for long-running tasks.  
+- A Client sends a goal.  
+- A Server executes it step by step.  
+- While running, the server sends feedback (progress updates).  
+- The client can cancel the goal if needed.  
+
+### Task: Send an Action Goal to Rotate the Turtle 1.20 Radians
+- Check available actions:
+ 
+      ros2 action list
+- Check the action type:
+ 
+      ros2 action info /turtle1/rotate_absolute
+- Check the data structure of Goal, Result, and Feedback:
+   
+      ros2 interface show turtlesim/action/RotateAbsolute
+- Send a goal to rotate the turtle with `theta 1.20`:
+
+      ros2 action send_goal /turtle1/rotate_absolute turtlesim/action/RotateAbsolute "{theta: 1.20}"
+### Result:
+- **Goal sent**: `{theta: 1.20}` (we ask turtle throw the /turtle1/rotate_absolute to rotate ~68 degree ).
+- **Feedback**: showed progress while the turtle was turning.
+- **Result**: reported the final rotation.
+
+<p align="center">
+ <img src="https://github.com/user-attachments/assets/ec694340-21b0-4c0d-9550-524eeaa6a35c" alt="action result" width="800"/>
+</p> 
