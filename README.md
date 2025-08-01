@@ -1,6 +1,14 @@
 # COS2 Fundamentals via Turtlesim
+This guide explains the **core concepts of ROS2** using the turtlesim package.  
+Each section introduces one concept (Node, Parameter, Topic, Service, Action) through a **practical task** you can run in your terminal.  
 
-# Node
+# Requirement
+- Install Ros2.<br>
+- Install turtlesim.
+
+      sudo apt install ros-humble-desktop
+      sudo apt install ros-humble-turtlesim
+## Node
 ### Concept:
 A **node** is an executable program, and each node has a specific responsibility to fulfill. Multiple nodes work together to build a robotic system.
 <br> 
@@ -150,3 +158,6 @@ An **Action** is like a service but for long-running tasks.
 <p align="center">
  <img src="https://github.com/user-attachments/assets/ec694340-21b0-4c0d-9550-524eeaa6a35c" alt="action result" width="800"/>
 </p> 
+
+## References 
+> - [Ros 2 Documentation](https://docs.ros.org/en/humble/)
