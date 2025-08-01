@@ -3,9 +3,12 @@
 # Node
 ### Concept:
 A **node** is an executable program, and each node has a specific responsibility to fulfill. Multiple nodes work together to build a robotic system.
+<br> 
+
 <p align="center">
  <img src="https://github.com/user-attachments/assets/823d27f2-f5a9-4ae0-b322-b5785c38ba47" width="500"/>
 </p>
+<br>
 
 ### Task: Control the Turtle with the Keyboard
 
@@ -46,7 +49,7 @@ A **node** is an executable program, and each node has a specific responsibility
       ros2 param set /turtlesim bacground_g 255
       ros2 param set /turtlesim bacground_b 0
 ### Result:
-- Change the background to green.
+- Change the background to **green**.
 
 <p align="center">
  <img src="https://github.com/user-attachments/assets/edab62ab-9e70-4882-9ebc-7ad5d4757367" alt="param result" width="800"/>
@@ -62,10 +65,11 @@ You can imagine it like:
 - One person(node) **talks(publishes)**.
 - Others(nodes) can **choose to listen(subscribe)**.
 - If nobody listens, the message is still spoken but ignored.
-  
+<br>  
 <p align="center">
  <img src="https://github.com/user-attachments/assets/100c8738-748d-4808-930f-040ed1873545" width="500"/>
 </p>
+<br>
 
 ### Task: Subscribe to the Turtle's Pose Topic
 
@@ -78,16 +82,43 @@ You can imagine it like:
 - Move the turtle with the keyboard.
 
 ### Result: 
-- Publisher: turtlesim_node (talks, sending pose updates).
-- Subscribe: your terminal (ros2 topic echo, listens to the updates).
+- **Publisher**: turtlesim_node (talks, sending pose updates).
+- **Subscribe**: your terminal (ros2 topic echo, listens to the updates).
 
 <p align="center">
  <img src="https://github.com/user-attachments/assets/8720c156-d268-4755-93d0-4405d4e2f45e" alt="Topic result" width="800"/>
 </p> 
 
-## service 
+# service 
+### Concept:
+A **Service** is a way for nodes to communicate with a request → response pattern.  
+- One node acts as a Server (offers the service).  
+- Another node acts as a Client (asks for something).  
+- The server does not keep sending data like a topic; it only responds when requested.  
+<br>
+<p align="center">
+ <img src="https://github.com/user-attachments/assets/68d17ec2-cca8-43cf-a522-a8aec68229aa" alt="Topic result" width="500"/>
+</p> 
+<br>
 
+### Task: Call the Clear Service to Erase the Turtle path
+- Check available service:
 
+      ros2 service list
+- Check the type of /clear service (check for know if it needs to input data):
+
+      ros2 service type /clear
+- Call the service to clear the turtle trail:
+
+      ros2 service call /reset std_srvs/srv/Empty
+
+### Result:
+**Server**: turtlesim_node(offers the /clear servers).<br>
+**Client**: Your terminal(requested to clear).
+
+<p align="center">
+ <img src="https://github.com/user-attachments/assets/66832a24-aa48-4a5b-bcd1-cce7f2ec2934" alt="service result" width="800"/>
+</p> 
 
 
 ## action
